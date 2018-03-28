@@ -7,7 +7,7 @@ motorA.Speed = -20;
 start(motorA);
 past = 0;
 colors = [];
-while abs(readRotation(motorA)) < 10
+while abs(readRotation(motorA)) < 840
 while abs(readRotation(motorA)) - past < 91
 end
 stop(motorA)
