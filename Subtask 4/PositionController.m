@@ -1,5 +1,6 @@
 function [] = PositionController(motorA, pos)
-resetRotation(motorA);
+pos = pos*1.8;
+currentPos = readRotation(motorA);
 neg = 1;
 if pos == 0
     return
@@ -13,9 +14,10 @@ end
 pos = abs(pos);
 start(motorA);
 
-while pos-abs(readRotation(motorA)) > pos/15 + pos/15
+while pos-abs(readRotation(motorA)-currentPos) > pos/15 + pos/15
 end
 motorA.Speed = -10 * neg;
+
 pause(0.01);
 stop(motorA);
 
